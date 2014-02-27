@@ -1,0 +1,77 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+
+% known issue: engrish ><
+
+\usepackage{hyperref} % ignore
+\usepackage{chemfig}  % optional: chem
+\usepackage{amsmath}  % default: math
+
+\title{sample}
+\author{philopon}
+\date{\today}
+
+% if cursor at preamble, compile all document.
+
+\begin{document}
+\maketitle
+
+\section{basic}
+
+compile section(thus level 3), in the standard.
+
+\subsection{configuration}
+
+set g:latexmk\_partial\_minimum\_level, to configure it.
+
+\begin{enumerate}
+  \item part
+  \item chapter
+  \item section
+  \item subsection
+  \item subsubsection
+\end{enumerate}
+
+you can open preview by setting g:latexmk\_partial\_previewer.
+
+follow special character is substituted.
+
+\begin{description}
+  \item[\%f] file path
+  \item[\%l] current line
+\end{description}
+
+\subsection{error}
+
+When error occured, open quickfix window.
+And fixed, close it.
+
+
+\section{advanced} % preamble: chem, !math
+                   % ^^^^^^^^^^^^^^^^^^^^^
+You can select preamble line using special comment.
+
+\begin{figure}[h]
+  \centering
+  \chemfig{-[:30]\chemabove{N}{H}-[:330](<:[:270])-[:30]-[:330]=_[:30]-[:330]=_[:270]-[:210]=_[:150](-[:90])}
+\end{figure}
+\subsection{ignore}
+
+never used in partial compile.
+
+\subsection{optional}
+
+not used in the standard.
+when specify in special comment, use it.
+
+\subsection{default}
+
+used in the standard.
+when specify in special comment, unused it.
+
+\subsection{example}
+
+in section about(not spefify preamble), used only amsmath package.
+
+in section advanced(chem, !math), used only chemfig package.
+
+\end{document}
